@@ -54,16 +54,41 @@ const quotes = [
 ]
 
 
-const getRandomNum = () => {
-	return Math.floor(Math.random() * quotes.length);
+const colors = [
+	"#B6DC76",
+	"#442B48",
+	"#A0C1D1",
+	"#52D1DC",
+	"#B5B2C2",
+	"#119DA4"
+]
+
+
+const getRandomNum = (max) => {
+	return Math.floor(Math.random() * max);
 }
 
 
 // select a random quote object from the quotes array
 const getRandomQuote = () => {
-	const randNum = getRandomNum();
+	const randNum = getRandomNum(quotes.length);
 
 	return quotes[randNum];
+}
+
+// select a random color from the colors array
+const getRandomColor = () => {
+	const randNum = getRandomNum(colors.length);
+
+	return colors[randNum];
+}
+
+
+// change to random background color 
+const changeBackgroundColor = () => {
+	const body = document.querySelector('body');
+
+	body.style.backgroundColor = getRandomColor();
 }
 
 
@@ -72,6 +97,7 @@ const printQuote = () => {
 
 	const quote = getRandomQuote();
 
+	// nested function to build optional source spans
 	function buildSource(q) {
 		let source = "";
 		if (q.citation) {
@@ -83,16 +109,18 @@ const printQuote = () => {
 	}
 
 	let quoteHTML = ` 
-	<p class="quote">${quote.quote}</p>
+	<p class="quote">
+		${quote.quote}
+	</p>
 	<p class="source">
 		${quote.source}${buildSource(quote)}
 	</p>`;
 
 	document.getElementById('quote-box').innerHTML = quoteHTML;
 
+	changeBackgroundColor();
+
 }
-
-
 
 
 // event listener to respond to "Show another quote" button clicks
