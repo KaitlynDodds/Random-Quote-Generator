@@ -1,8 +1,9 @@
+'use strict'
 
 // quotes array
 const quotes = [
 	{
-		quote: "he best way to remember your wife's birthday is to forget it once.",
+		quote: "The best way to remember your wife's birthday is to forget it once.",
 		source: "E. Joseph Cossman",
 		citation: "Famous Quotes and Authors",
 		tags: [
@@ -53,6 +54,43 @@ const quotes = [
 ]
 
 
+const getRandomNum = () => {
+	return Math.floor(Math.random() * quotes.length);
+}
+
+
+// select a random quote object from the quotes array
+const getRandomQuote = () => {
+	const randNum = getRandomNum();
+
+	return quotes[randNum];
+}
+
+
+// print random quote to dom 
+const printQuote = () => {
+
+	const quote = getRandomQuote();
+
+	function buildSource(q) {
+		let source = "";
+		if (q.citation) {
+			source += `<span class="citation">${q.citation}</span>`
+		} else if (q.year) {	
+			source += `<span class="year">${q.year}</span>`
+		}
+		return source;
+	}
+
+	let quoteHTML = ` 
+	<p class="quote">${quote.quote}</p>
+	<p class="source">
+		${quote.source}${buildSource(quote)}
+	</p>`;
+
+	document.getElementById('quote-box').innerHTML = quoteHTML;
+
+}
 
 
 
