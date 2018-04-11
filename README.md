@@ -46,5 +46,5 @@ When the quote changes, randomly change the background color of the page.
 Refresh the quote after a set amount of time. For example, every 30 seconds, make a new quote appear. (You can use the setInterval() or setTimeout() method to do this -- see the links in the “Additional Resources” section).
 
 
-**Completed: 4/6/2018**
+**Completed: 4/6/2018**  
 **Grade: Exceeds Expectations** 
