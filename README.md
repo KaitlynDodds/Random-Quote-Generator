@@ -47,4 +47,4 @@ Refresh the quote after a set amount of time. For example, every 30 seconds, mak
 
 
 **Completed: 4/6/2018**
-**Grade: Exceeds Expectations**
+**Grade: Exceeds Expectations** 
